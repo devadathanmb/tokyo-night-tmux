@@ -34,7 +34,7 @@ default_window_id_style="digital"
 default_pane_id_style="hsquare"
 default_zoom_id_style="dsquare"
 
-window_id_style="$(echo "$TMUX_VARS" | grep '@tokyo-night-tmux_window_id_style' | cut -d" " -f2)"
+window_id_style="none"
 pane_id_style="$(echo "$TMUX_VARS" | grep '@tokyo-night-tmux_pane_id_style' | cut -d" " -f2)"
 zoom_id_style="$(echo "$TMUX_VARS" | grep '@tokyo-night-tmux_zoom_id_style' | cut -d" " -f2)"
 window_id_style="${window_id_style:-$default_window_id_style}"
@@ -63,5 +63,5 @@ tmux set -g window-status-current-format "$RESET#[fg=${THEME[green]},bg=${THEME[
 tmux set -g window-status-format "$RESET#[fg=${THEME[foreground]}] #{?#{==:#{pane_current_command},ssh},󰣀,}${RESET} $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} #[fg=${THEME[yellow]}]#{?window_last_flag,󰁯 , } "
 
 #+--- Bars RIGHT ---+
-tmux set -g status-right "$battery_status$current_path$cmus_status$netspeed$git_status$wb_git_status$date_and_time"
+tmux set -g status-right "$battery_status$current_path$cmus_status$netspeed$date_and_time"
 tmux set -g window-status-separator ""
